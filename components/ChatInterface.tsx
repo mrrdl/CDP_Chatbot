@@ -3,6 +3,7 @@ import MessageList from './MessageList';
 import InputArea from './InputArea';
 import { Message } from '../types';
 import { processUserInput } from '../services/nlpService';
+import CDPComparison from './CDPComparison';
 
 interface ChatInterfaceProps {
   messages: Message[];
@@ -11,7 +12,6 @@ interface ChatInterfaceProps {
   setIsLoading: (isLoading: boolean) => void;
   error: string | null;
   setError: (error: string | null) => void;
-  setComparisonData: React.Dispatch<React.SetStateAction<{ cdp1: string; cdp2: string; feature: string } | null>>;
 }
 
 const ChatInterface: React.FC<ChatInterfaceProps> = ({ 
@@ -21,7 +21,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   setIsLoading, 
   error, 
   setError,
-  setComparisonData
 }) => {
   const handleUserInput = async (input: string) => {
     addMessage(input, 'user');
@@ -31,10 +30,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       const result = await processUserInput(input);
       if (typeof result === 'string') {
         addMessage(result, 'bot');
-        setComparisonData(null);
       } else {
         addMessage(`Here's a comparison between ${result.cdp1} and ${result.cdp2} for ${result.feature}:`, 'bot');
-        setComparisonData(result);
+        addMessage(<CDPComparison {...result} />, 'bot');
       }
     } catch (err) {
       const errorMessage = "I'm sorry, I encountered an unexpected error. Please try asking your question again or rephrase it.";
