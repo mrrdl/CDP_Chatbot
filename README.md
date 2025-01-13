@@ -1,4 +1,3 @@
-Based on the information available in your repository, here's an enhanced `README.md` file for your CDP Support Chatbot project:
 
 ---
 
@@ -92,5 +91,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 - Utilizes modern web technologies and tools.
 
 ---
-
-Feel free to customize this `README.md` further to better fit your project's specifics and to provide more detailed instructions or information as needed. 
