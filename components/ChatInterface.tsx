@@ -7,7 +7,7 @@ import CDPComparison from './CDPComparison';
 
 interface ChatInterfaceProps {
   messages: Message[];
-  addMessage: (text: string, sender: 'user' | 'bot') => void;
+  addMessage: (text: string | React.ReactNode, sender: 'user' | 'bot') => void;
   isLoading: boolean;
   setIsLoading: (isLoading: boolean) => void;
   error: string | null;
@@ -45,6 +45,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
 
   return (
     <div className="flex flex-col h-[500px]">
+      <div className="bg-yellow-100 p-2 mb-4 text-sm text-yellow-800 rounded">
+        Disclaimer: This chatbot uses simulated data for demonstration purposes. In a production environment, it would fetch real-time data from official documentation.
+      </div>
       <MessageList messages={messages} />
       {error && <div className="text-red-500 mb-2">{error}</div>}
       <InputArea onSendMessage={handleUserInput} isLoading={isLoading} />
