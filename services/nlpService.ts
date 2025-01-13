@@ -16,7 +16,20 @@ export async function processUserInput(input: string): Promise<string | { cdp1: 
   const action = extractAction(lowercaseInput);
 
   try {
-    const result = await fetchDocumentation(cdp, action);
+    let result = await fetchDocumentation(cdp, action);
+    
+    // If no result is found, try to fetch with 'audience' or 'segment' keywords
+    if (result.includes("I couldn't find specific information")) {
+      const audienceResult = await fetchDocumentation(cdp, 'audience');
+      const segmentResult = await fetchDocumentation(cdp, 'segment');
+      
+      if (!audienceResult.includes("I couldn't find specific information")) {
+        result = audienceResult;
+      } else if (!segmentResult.includes("I couldn't find specific information")) {
+        result = segmentResult;
+      }
+    }
+    
     return result;
   } catch (error) {
     console.error('Error processing user input:', error);
@@ -38,7 +51,10 @@ function identifyCDP(input: string): string {
 }
 
 function extractAction(input: string): string {
-  const actionKeywords = ['create', 'set up', 'integrate', 'build', 'use', 'configure', 'implement', 'install', 'connect', 'manage'];
+  const actionKeywords = [
+    'create', 'set up', 'integrate', 'build', 'use', 'configure', 'implement', 
+    'install', 'connect', 'manage', 'segment', 'audience'
+  ];
   for (const action of actionKeywords) {
     if (input.includes(action)) {
       return action;
