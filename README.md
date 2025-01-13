@@ -1,152 +1,96 @@
-# **CDP Support Chatbot**
-
-A full-stack chatbot application designed to assist with "how-to" questions and other queries related to Customer Data Platforms (CDPs) such as **Segment**, **mParticle**, **Lytics**, and **Zeotap**. The chatbot can dynamically scrape documentation, process user queries, and provide relevant responses in real-time.
+Based on the information available in your repository, here's an enhanced `README.md` file for your CDP Support Chatbot project:
 
 ---
 
-## **Features**
-- **Dynamic Query Handling**:
-  - Processes "how-to" questions, comparisons, and generic queries.
-- **Documentation Scraping**:
-  - Fetches real-time data from CDP documentation websites using web scraping.
-- **Natural Language Understanding (NLU)**:
-  - Uses OpenAI's GPT for advanced question classification and response generation.
-- **Cross-CDP Comparison**:
-  - Handles comparative queries between different CDPs.
-- **Frontend**:
-  - A user-friendly React/Next.js-based chatbot interface.
+# CDP Support Chatbot
 
----
+A full-stack chatbot application designed to assist with "how-to" questions and other queries related to Customer Data Platforms (CDPs) such as Segment, mParticle, Lytics, and Zeotap. The chatbot dynamically scrapes documentation, processes user queries, and provides relevant responses in real-time.
 
-## **Project Structure**
+## Features
 
-### **Backend**
-- Built with **Node.js**, **Express**, and **Cheerio**.
-- Scrapes and processes data from CDP documentation.
-- API routes for query handling and data retrieval.
+- **Dynamic Query Handling:** Processes "how-to" questions, comparisons, and generic queries.
+- **Documentation Scraping:** Fetches real-time data from CDP documentation websites using web scraping.
+- **Natural Language Processing:** Utilizes NLP techniques to understand and respond to user queries effectively.
+- **Real-time Responses:** Provides immediate answers by processing and analyzing scraped data.
 
-### **Frontend**
-- Developed using **React** and **Next.js**.
-- Provides an interactive chatbot interface for user interactions.
+## Technologies Used
 
-### **Technologies Used**
-- **Frontend**:
-  - React
-  - Next.js
-  - TailwindCSS
-- **Backend**:
-  - Node.js
-  - Express
-  - Cheerio
-  - Axios
-- **AI/NLP**:
-  - OpenAI's GPT API
-- **Deployment**:
-  - Docker
-  - Docker Compose
+- **Frontend:** React.js with Next.js framework.
+- **Backend:** Node.js with Express.js.
+- **Web Scraping:** Tools like Cheerio or Puppeteer (please specify the exact tools used).
+- **Styling:** Tailwind CSS.
+- **State Management:** React Hooks and Context API.
+- **Type Checking:** TypeScript.
 
----
+## Prerequisites
 
-## **Setup Instructions**
+- **Node.js:** Ensure you have Node.js installed.
+- **Package Manager:** npm or yarn.
 
-### **Prerequisites**
-1. **Node.js**: Install the latest LTS version from [Node.js official site](https://nodejs.org/).
-2. **Python**: Required for backend data preprocessing and Elasticsearch integration.
-3. **Docker**: Install Docker for containerization and deployment.
+## Installation
 
----
-
-### **Steps to Run the Project**
-
-#### 1. **Clone the Repository**
-```bash
-git clone https://github.com/your-username/cdp-support-chatbot.git
-cd cdp-support-chatbot
-```
-
-#### 2. **Setup the Backend**
-1. Navigate to the backend directory:
+1. **Clone the Repository:**
    ```bash
-   cd backend
+   git clone https://github.com/mrrdl/CDP_Chatbot.git
+   cd CDP_Chatbot
    ```
-2. Install dependencies:
+
+2. **Install Dependencies:**
    ```bash
    npm install
    ```
-3. Start the server:
-   ```bash
-   npm run start
-   ```
-   The backend will run on `http://localhost:3001`.
 
-#### 3. **Setup the Frontend**
-1. Navigate to the frontend directory:
-   ```bash
-   cd ../frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
+3. **Set Up Environment Variables:**
+   - Create a `.env` file in the root directory.
+   - Add necessary environment variables (e.g., API keys, scraping targets).
+
+4. **Run the Application:**
    ```bash
    npm run dev
    ```
-   The frontend will run on `http://localhost:3000`.
+   - Access the application at `http://localhost:3000`.
+
+## Usage
+
+- **Ask Questions:** Enter your query related to CDPs in the chat interface.
+- **Receive Answers:** The chatbot will provide real-time responses based on the latest documentation.
+
+## Project Structure
+
+- `app/`: Contains the main application components.
+- `components/`: Reusable React components.
+- `hooks/`: Custom React hooks.
+- `lib/`: Utility functions and libraries.
+- `public/`: Static assets.
+- `services/`: Backend service functions, including scraping logic.
+- `styles/`: Styling files, primarily Tailwind CSS configurations.
+
+## Contributing
+
+1. **Fork the Repository.**
+2. **Create a New Branch:**
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
+3. **Commit Your Changes:**
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+4. **Push to the Branch:**
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
+5. **Open a Pull Request.**
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Acknowledgements
+
+- Inspired by the need for efficient access to CDP documentation.
+- Utilizes modern web technologies and tools.
 
 ---
 
-### **Environment Variables**
-
-#### Backend:
-Create a `.env` file in the `backend` directory with the following variables:
-```
-OPENAI_API_KEY=your-openai-api-key
-```
-
-#### Frontend:
-No special variables are required for the frontend.
-
----
-
-## **Available Scripts**
-
-### **Backend Scripts**
-- `npm start`: Start the backend server.
-
-### **Frontend Scripts**
-- `npm run dev`: Start the frontend development server.
-- `npm run build`: Build the app for production.
-- `npm run start`: Start the production server.
-
----
-
-## **API Endpoints**
-
-### `/api/scrape`
-- **Method**: `GET`
-- **Description**: Scrapes documentation for relevant content.
-- **Query Parameters**:
-  - `cdp`: Name of the CDP (`segment`, `mparticle`, `lytics`, `zeotap`).
-  - `query`: The user's search query.
-
----
-
-## **Features in Progress**
-- **Improved Query Relevance**: Advanced NLP for better query matching.
-- **User Authentication**: Secure user access and personalized history.
-- **Deployment**: Full Docker and cloud hosting support.
-
----
-
-## **License**
-This project is licensed under the MIT License.
-
----
-
-## **Contributing**
-We welcome contributions! Please fork the repo, create a new branch for your feature, and submit a pull request.
-
----
-
-Let me know if you need any edits or customizations! 😊
+Feel free to customize this `README.md` further to better fit your project's specifics and to provide more detailed instructions or information as needed. 
