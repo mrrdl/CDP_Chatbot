@@ -39,9 +39,10 @@ A full-stack chatbot application designed to assist with "how-to" questions and 
    npm install
    ```
 
-3. **Set Up Environment Variables:**
-   - Create a `.env` file in the root directory.
-   - Add necessary environment variables (e.g., API keys, scraping targets).
+3. **Build Dev dependencies:**
+   ```bash
+   npm run build
+   ```
 
 4. **Run the Application:**
    ```bash
